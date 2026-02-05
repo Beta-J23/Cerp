@@ -1,0 +1,17 @@
+{
+  "manifest_version": 3,
+  "name": "Web Radio Player",
+  "version": "1.0",
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "r_vec.png"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": ["offscreen"],
+  "web_accessible_resources": [{
+    "resources": ["howler.min.js", "stations.json", "offscree.html"],
+    "matches": ["<all_urls>"]
+  }]
+}
