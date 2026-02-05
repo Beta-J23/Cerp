@@ -1,6 +1,5 @@
 [
   { "name": "FIP Electro", "url": "http://icecast.radiofrance.fr/fipelectro-hifi.aac" },
   { "name": "Rai Radio", "url": "http://icestreaming.rai.it/1.mp3" },
-  { "name": "Break Pirates", "url": "http://bpstream.hostco.de:3000/" }
   
 ]
