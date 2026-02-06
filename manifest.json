@@ -11,7 +11,7 @@
   },
   "permissions": ["offscreen"],
   "web_accessible_resources": [{
-    "resources": ["howler.min.js", "stations.json", "offscree.html"],
+    "resources": ["stations.json", "offscreen.html"],
     "matches": ["<all_urls>"]
   }]
 }

@@ -1,0 +1,28 @@
+body {
+  background: #5e5d5d;
+}
+
+select {
+  border: 1px solid #8d4eeb;
+  background-color: #abcef9;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+button {
+  background: #ff05c0;
+  color: rgb(250, 249, 249);
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  margin-top: 10px;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background: #3283e6;
+}
+
+button:active {
+  transform: scale(0.98);
+}
