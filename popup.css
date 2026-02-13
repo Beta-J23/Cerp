@@ -26,3 +26,50 @@ button:hover {
 button:active {
   transform: scale(0.98);
 }
+
+#settingsBtn {
+  position: absolute;
+  border: none;
+  border-radius: 6px;
+  right: 5px;
+  font-size: 14px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+#settingsMenu {
+  display: none;
+  position: absolute;
+  top: 30px;
+  right: 0;
+  width: 250px;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  z-index: 1000;
+  padding: 10px;
+}
+
+#customUrl {
+  width: 100%;
+  padding: 8px;
+  margin: 5px 0;
+  border: 1px solid #8d4eeb;
+  border-radius: 6px;
+}
+
+#saveUrl, #useLocal {
+  background: #8d4eeb;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 10px;
+  margin: 5px 0;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+#saveUrl:hover, #useLocal:hover {
+  background: #6b3aa3;
+}

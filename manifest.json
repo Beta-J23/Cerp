@@ -9,9 +9,16 @@
   "background": {
     "service_worker": "background.js"
   },
-  "permissions": ["offscreen"],
+  "permissions": [
+    "storage",
+    "offscreen"
+  ], 
   "web_accessible_resources": [{
     "resources": ["stations.json", "offscreen.html"],
     "matches": ["<all_urls>"]
-  }]
+  }],
+  "options_ui": {
+  "page": "options.html",
+  "open_in_tab": true
+}
 }

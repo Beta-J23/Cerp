@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Radio Lists</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; }
+    input, button { padding: 8px; margin: 5px 0; }
+  </style>
+</head>
+<body>
+  <h1 style="text-align:center;color:white;">Radio Player Settings</h1>
+  <h2>Save Station List</h2>
+  <input type="text" id="listName" placeholder="List name">
+  <input type="text" id="listUrl" placeholder="JSON URL">
+  <button id="saveList">Save</button>
+
+  <h2>Your Lists</h2>
+  <select id="savedLists"></select>
+  <button id="loadList">Load</button>
+  <button id="deleteList">Delete</button>
+<div id="jsonPreview" style="color:white;margin:10px 0;max-height:200px;overflow-y:auto;"></div>
+
+
+  <div id="stationPreview" style="color:white;margin:10px 0;max-height:150px;overflow-y:auto;"></div>  
+
+  <script src="options.js"></script>
+  <link rel="stylesheet" href="options.css">
+</body>
+</html>

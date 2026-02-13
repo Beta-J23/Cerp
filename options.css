@@ -1,0 +1,36 @@
+body {
+  background: #5e5d5d;
+  font-family: sans-serif;
+  padding: 20px;
+}
+
+input, select, button {
+  border: 1px solid #8d4eeb;
+  background-color: #abcef9;
+  border-radius: 6px;
+  font-size: 14px;
+  padding: 8px;
+  margin: 5px 0;
+}
+
+button {
+  background: #ff05c0;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #3283e6;
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+#stationPreview {
+  color: white;
+  margin: 10px 0;
+  max-height: 150px;
+  overflow-y: auto;
+}
