@@ -1,10 +1,13 @@
 body {
   background: #5e5d5d;
+  min-width: 120px;
+  min-height: 50px;
 }
 
 select {
   border: 1px solid #8d4eeb;
   background-color: #abcef9;
+  min-width: 90px;
   border-radius: 6px;
   font-size: 14px;
 }
@@ -25,6 +28,17 @@ button:hover {
 
 button:active {
   transform: scale(0.98);
+}
+
+#addBtn {
+  background: #05ff1e;
+  position: static;
+  border: none;
+  width: 50px;
+  height: 30px;
+  top: 5px;
+  right: 40px;
+  margin-top: 10px;
 }
 
 #settingsBtn {

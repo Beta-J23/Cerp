@@ -16,22 +16,33 @@ const loadListNames = () => {
   chrome.storage.local.get(null, (items) => {
     const select = document.getElementById('savedLists');
     select.innerHTML = '';
+    const localOpt = new Option('Local List', 'Local_List');
+    select.add(localOpt);
     Object.keys(items).filter(k => Array.isArray(items[k])).forEach(name => {
-      const opt = new Option(name, name);
-      select.add(opt);
+      if (name !== 'Local_List') { 
+        const opt = new Option(name, name);
+        select.add(opt);
+      }
     });
   });
 };
 
 document.getElementById('savedLists').addEventListener('change', (e) => {
   const name = e.target.value;
-  chrome.storage.local.get([name], (res) => {
-    const data = res[name];
-    document.getElementById('jsonPreview').textContent = JSON.stringify(data, null, 2);
-  });
+  if (name === 'Local_List') {
+    fetch(chrome.runtime.getURL('utils/stations.json'))
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById('jsonPreview').textContent = JSON.stringify(data, null, 2);
+      });
+  } else {
+    chrome.storage.local.get([name], (res) => {
+      const data = res[name];
+      document.getElementById('jsonPreview').textContent = JSON.stringify(data, null, 2);
+    });
+  }
 });
 
-// Remove duplicate listener — keep only one
 document.getElementById('listUrl').addEventListener('input', async () => {
   const url = document.getElementById('listUrl').value;
   const preview = document.getElementById('stationPreview');
@@ -52,13 +63,30 @@ document.getElementById('listUrl').addEventListener('input', async () => {
 
 document.getElementById('saveList').addEventListener('click', saveList);
 
-// Remove window.close() to keep tab open
 document.getElementById('loadList').addEventListener('click', () => {
   const name = document.getElementById('savedLists').value;
   chrome.storage.local.get([name], (res) => {
-    chrome.storage.local.set({ currentList: name });
-    // Remove window.close() if you don't want to close the tab
+    if (name === 'Local_List') {
+      fetch(chrome.runtime.getURL('utils/stations.json'))
+        .then(res => res.json())
+        .then(stations => {
+          chrome.storage.local.set({ currentList: 'Local_List', 'Local_List': stations });
+        });
+    } else {
+      chrome.storage.local.set({ currentList: name });
+    }
   });
 });
+
+document.getElementById('deleteList').addEventListener('click', () => {
+  const name = document.getElementById('savedLists').value;
+  if (name === 'Custom_List') {
+    alert("Cannot delete custom list");
+    return;
+  }
+  chrome.storage.local.remove(name, loadListNames);
+});
+
+chrome.storage.onChanged.addListener(loadListNames);
 
 loadListNames();
